@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="MyHandler" type="com.ewebapps.ethan.sqlio.MainActivity.MyHandler"
+            />
+        <variable
+            name="SettingsViewBinding" type="com.ewebapps.ethan.sqlio.databinding.SettingsLayoutBinding"
+            />
+        <import type="android.view.View"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/Settings"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/settingslabel"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        <TextView
+            android:id="@+id/txtView_DBLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remote Database Location:" />
+
+        <EditText
+            android:id="@+id/txt_ServerLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/databaselocation"
+            android:inputType="textUri"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+
+        <TextView
+            android:id="@+id/txtView_DBFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remote Database File Name:" />
+
+        <EditText
+            android:id="@+id/txt_DBFileName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/dbfilename"
+            android:inputType="text|textPersonName" />
+
+        <TextView
+            android:id="@+id/txtView_LocalLocation"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:text="Local Database Location (Full Path):" />
+
+        <EditText
+            android:id="@+id/txt_LocalStore"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:clickable="true"
+            android:ems="10"
+            android:hint="Local Directory for DB"
+            android:inputType="textUri"
+            android:onClick="@{() -> MyHandler.txtLocalStoreClicked()}" />
+
+        <Button
+            android:id="@+id/btn_Apply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/apply"
+            android:onClick="@{() -> MyHandler.SettingsApplyBtnClicked(SettingsViewBinding)}"/>
+
+        <Button
+            android:id="@+id/btn_SettingsBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back"
+            android:onClick="@{() -> MyHandler.SettingsBackBtnClicked()}"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
+</layout>
